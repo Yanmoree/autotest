@@ -1,0 +1,18 @@
+{
+  "draftId": "{{draftId}}",
+  "action": "SAVE",
+  "documentInfo": {
+    "draftValid": true,
+    "documentNumber": "{{documentNumber}}",
+    "documentDate": "2025-11-27",
+    "documentName": "подписант автотест",
+    "body": "{{example}}",
+    "htmlWrapper": "<div class=\"ck-blurred ck ck-content ck-editor__editable ck-rounded-corners ck-editor__editable_inline ck-read-only ck-column-resize_disabled\" lang=\"ru\" dir=\"ltr\" >{{ wrappedInnerContent }}</div>",
+    "parameters": [],
+    "recipientsSelected": [],
+    "attachmentsInfo": [],
+    "senderSelected": null,
+    "stepSelected": [],
+    "documentFiles": []
+  }
+}
