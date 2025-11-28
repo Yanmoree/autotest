@@ -23,7 +23,6 @@ public class authReq {
                 .statusCode(200);
 
         String tokenAdmin = authAdmin.jsonPath().getString("access_token");
-        System.out.println("TokenAdmin: " + tokenAdmin);
         return tokenAdmin;
 
     }
