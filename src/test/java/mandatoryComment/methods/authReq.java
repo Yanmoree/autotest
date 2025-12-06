@@ -1,14 +1,12 @@
-package mandatoryComment;
+package mandatoryComment.methods;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.Test;
 
 public class authReq {
 
-    @Test
 
-    public String Admin() {
+    public static String Admin() {
 
         Response authAdmin = RestAssured.given()
                 .contentType("application/x-www-form-urlencoded")
@@ -27,14 +25,13 @@ public class authReq {
 
     }
 
-    @Test
 
-    public void kedoFrontend() {
+    public static String kedoFrontend() {
 
         Response authFrontend = RestAssured.given()
                 .contentType("application/x-www-form-urlencoded")
                 .formParam("client_id", "kedo")
-                .formParam("username", "kedofrontend")
+                .formParam("username", "kedofrontendauto")
                 .formParam("password", "AA123123aa!@")
                 .formParam("grant_type", "password")
                 .when()
@@ -44,13 +41,12 @@ public class authReq {
                 .statusCode(200);
 
         String tokenFrontend = authFrontend.jsonPath().getString("access_token");
-        System.out.println("TokenFrontend: " + tokenFrontend);
+        return tokenFrontend;
 
     }
 
-    @Test
 
-    public void kedoBackend() {
+    public static String kedoBackend() {
 
         Response authBackend = RestAssured.given()
                 .contentType("application/x-www-form-urlencoded")
@@ -65,7 +61,7 @@ public class authReq {
                 .statusCode(200);
 
         String tokenBackend = authBackend.jsonPath().getString("access_token");
-        System.out.println("TokenFrontend: " + tokenBackend);
+        return tokenBackend;
 
     }
 

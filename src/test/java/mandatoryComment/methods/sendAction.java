@@ -1,25 +1,19 @@
-package mandatoryComment;
+package mandatoryComment.methods;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.Test;
 
 public class sendAction {
 
-    @Test
 
-    public String sendWithCertificate() {
+    public static String sendWithCertificate(String actionBody) {
 
         // ЛОГИРУЮСЬ ПОД АДМИНОМ
 
         authReq adminAuth = new authReq();
         String tokenAdmin = adminAuth.Admin();
 
-        // ПОЛУЧАЮ ТЕЛО ОТПРАВКИ
-
-        createDraft body = new createDraft();
-        String actionBody = body.autoNumberDraft();
 
         // ОТПРАВЛЯЮ ЗАПРОС НА ОТПРАВКУ
 
@@ -34,9 +28,12 @@ public class sendAction {
         action.then()
                 .statusCode(200);
 
+        String draftId = action.jsonPath().getString("draftId");
+
         // ПОДКЛЮЧАЮ СЕРТИФИКАТ
 
         String sendWithCertificate = JsonFileReader.getJsonFromResources("sendWithCertificate.json")
+                .replace("{{draftId}}", draftId);
 
         Response send = RestAssured.given()
                 .contentType(ContentType.JSON)
@@ -50,6 +47,23 @@ public class sendAction {
         send.then()
                 .statusCode(200);
 
-    }
 
+        String documentFeedId = send.jsonPath().getString("id");
+
+        Response getDocumnetId = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .header("Authorization", "Bearer " + tokenAdmin)
+                .header("X-Checked-User-Id", "0d175944-7f05-4180-bb60-019317346710")
+                .queryParam("documentFeedId", documentFeedId)
+                .when()
+                .get("https://api.kedodev.e-vo.kz/api/v1/document");
+
+        getDocumnetId.then()
+                .statusCode(200);
+
+        String documentId = getDocumnetId.jsonPath().getString("documentId");
+
+        return documentId;
+
+    }
 }

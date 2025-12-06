@@ -1,11 +1,11 @@
 {
-  "routeDocumentTemplateId": "50361fb6-2377-49e7-8c15-e3bcaae134c6",
+  "routeDocumentTemplateId": "aac0592c-0f18-4719-a36c-c41b8bfdf702",
   "doNotCreateTask": false,
-  "documentInfo": {
-    "draftValid": true,
+  "documentInfo":
+  {"draftValid": true,
     "documentNumber": "{{documentNumber}}",
-    "documentDate": "2025-11-27",
-    "documentName": "подписант автотест",
+    "documentDate": "2025-11-30",
+    "documentName": "autoRoute",
     "body": "{{example}}",
     "htmlWrapper": "<div class=\"ck-blurred ck ck-content ck-editor__editable ck-rounded-corners ck-editor__editable_inline ck-read-only ck-column-resize_disabled\" lang=\"ru\" dir=\"ltr\" >{{ wrappedInnerContent }}</div>",
     "parameters": [],
