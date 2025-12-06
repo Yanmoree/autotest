@@ -1,12 +1,13 @@
 package mandatoryComment.methods;
 
+import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 public class sendAction {
 
-
+    @Step("Отправка документа с подписью")
     public static String sendWithCertificate(String actionBody) {
 
         // ЛОГИРУЮСЬ ПОД АДМИНОМ

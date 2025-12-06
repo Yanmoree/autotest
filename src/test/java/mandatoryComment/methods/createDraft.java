@@ -1,5 +1,7 @@
 package mandatoryComment.methods;
 
+import io.qameta.allure.Allure;
+import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -7,6 +9,7 @@ import io.restassured.response.Response;
 public class createDraft {
 
 
+    @Step("Получение номера для создания документа и создание черновика")
     public static String autoNumberDraft() {
 
         // ЛОГИН ПОД АДМИНОМ

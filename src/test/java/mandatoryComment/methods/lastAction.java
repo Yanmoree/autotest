@@ -1,11 +1,13 @@
 package mandatoryComment.methods;
 
+import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 public class lastAction {
 
+    @Step("Принятие документа")
     public static void lastAction(String documentId) {
 
         authReq adminAuth = new authReq();

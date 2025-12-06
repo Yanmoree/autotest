@@ -1,18 +1,23 @@
 package mandatoryComment.methods;
 
+import io.qameta.allure.Allure;
+import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
 public class authReq {
 
-
+    @Step("Авторизация под пользователем: Старостин Ярослав")
     public static String Admin() {
+
+        String username = "ya_starostin";
+        String password = "AA123123aa!@";
 
         Response authAdmin = RestAssured.given()
                 .contentType("application/x-www-form-urlencoded")
                 .formParam("client_id", "kedo")
-                .formParam("username", "ya_starostin")
-                .formParam("password", "AA123123aa!@")
+                .formParam("username", username)
+                .formParam("password", password)
                 .formParam("grant_type", "password")
                 .when()
                 .post("https://keycloak-dev.e-vo.kz/realms/docrobot/protocol/openid-connect/token");
@@ -25,14 +30,17 @@ public class authReq {
 
     }
 
-
+    @Step("Авторизация под пользователем: kedo Frontend")
     public static String kedoFrontend() {
+
+        String username = "kedofrontendauto";
+        String password = "AA123123aa!@";
 
         Response authFrontend = RestAssured.given()
                 .contentType("application/x-www-form-urlencoded")
                 .formParam("client_id", "kedo")
-                .formParam("username", "kedofrontendauto")
-                .formParam("password", "AA123123aa!@")
+                .formParam("username", username)
+                .formParam("password", password)
                 .formParam("grant_type", "password")
                 .when()
                 .post("https://keycloak-dev.e-vo.kz/realms/docrobot/protocol/openid-connect/token");
@@ -45,14 +53,17 @@ public class authReq {
 
     }
 
-
+    @Step("Авторизация под пользователем: kedo Backend")
     public static String kedoBackend() {
+
+        String username = "kedoBackend";
+        String password = "AA123123aa!@";
 
         Response authBackend = RestAssured.given()
                 .contentType("application/x-www-form-urlencoded")
                 .formParam("client_id", "kedo")
-                .formParam("username", "kedobackend")
-                .formParam("password", "AA123123aa!@")
+                .formParam("username", username)
+                .formParam("password", password)
                 .formParam("grant_type", "password")
                 .when()
                 .post("https://keycloak-dev.e-vo.kz/realms/docrobot/protocol/openid-connect/token");

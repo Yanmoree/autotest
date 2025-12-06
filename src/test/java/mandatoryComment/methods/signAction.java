@@ -1,5 +1,6 @@
 package mandatoryComment.methods;
 
+import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -7,6 +8,7 @@ import io.restassured.response.Response;
 public class signAction {
 
 
+    @Step("Подписание документа")
     public static void signAction(String documentId) {
 
         authReq backendAuth = new authReq();
